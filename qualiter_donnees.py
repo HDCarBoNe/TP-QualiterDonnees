@@ -34,7 +34,7 @@ def print_climat():
     print(climat.sample(10))
     print(climat_error.sample(10))
 
-def print_moy_min_max():
+def print_moy_min_max(climat):
     for i, month in enumerate(mois, start=0):
         print("\n\nStats du mois de " + mois[i] + ":\n")
         print("moyenne du mois de " + mois[i] + " : " + str(nanmean(climat.iloc[:, i])))
@@ -125,15 +125,38 @@ def print_courbe_annuelle_pointeur():
     plt.axis([0, 365, -40, 40])
     plt.show()
 
+def print_30j_glissant():
+    x = x_annuelle
+    y = y_annuelle
+    fig = plt.figure()
+    ax1 = fig.add_subplot(211)
+    ax1.bar(x, y, align='center')
+
+    ax2 = fig.add_subplot(212)
+    ax2.bar(range(len(y)), y, align='center')
+    plt.xticks(range(len(x)), x)
+
+    plt.show()
+
+####################################################################################
+def print_climat_error():
+    print(climat_error.sample(10))
+####################################################################################
+
 #Afficher les valeurs contenu dans le fichier excel
 print_climat()
 #Pour l’ échantillon SI, calculez : • moyenne par mois • écart type par mois • min /max par mois et par année
-print_moy_min_max()
+print_moy_min_max(climat)
 #tracer les courbes de chaque mois avec une bibliothèque graphique python Matplotlib, 12 vues mensuelles
 #print_courbe_mois()
 #Assembler les courbes sur un seul graphique (J1 -> J365) : vue annuelle
 y_annuelle,x_annuelle = print_courbe_annuelle()
 #Présenter la valeur lue en parcourant la courbe à l'aide du pointeur,
-print_courbe_annuelle_pointeur()
+#print_courbe_annuelle_pointeur()
+#Présenter les valeurs précédentes par mois glissant de 30 jours centré sur la valeur lue
+#print_30j_glissant()
 
+# Recommencez avec le jeu SI-erreur après avoir corrigé les valeurs en erreur. Précisez vos méthodes.
+print_climat_error()
+#print_moy_min_max(climat_error)
 
