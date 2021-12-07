@@ -148,15 +148,15 @@ print_climat()
 #Pour l’ échantillon SI, calculez : • moyenne par mois • écart type par mois • min /max par mois et par année
 print_moy_min_max(climat)
 #tracer les courbes de chaque mois avec une bibliothèque graphique python Matplotlib, 12 vues mensuelles
-#print_courbe_mois()
+print_courbe_mois()
 #Assembler les courbes sur un seul graphique (J1 -> J365) : vue annuelle
 y_annuelle,x_annuelle = print_courbe_annuelle()
 #Présenter la valeur lue en parcourant la courbe à l'aide du pointeur,
-#print_courbe_annuelle_pointeur()
+print_courbe_annuelle_pointeur()
 #Présenter les valeurs précédentes par mois glissant de 30 jours centré sur la valeur lue
 #print_30j_glissant()
 
+########################################################################################################################
 # Recommencez avec le jeu SI-erreur après avoir corrigé les valeurs en erreur. Précisez vos méthodes.
 print_climat_error()
 #print_moy_min_max(climat_error)
-
