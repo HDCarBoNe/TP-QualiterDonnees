@@ -16,7 +16,7 @@ Consignes :
 - [x] Assembler	les	courbes	sur	un	seul	graphique	(J1	->	J365)	:	vue	annuelle.
 - [x] Présenter	la	valeur	lue	en	parcourant	la	courbe	à	l'aide	du	pointeur,	
 - [ ] Présenter	les	valeurs	précédentes	par	mois	glissant	de	30	jours	centré	sur	la	valeur	lue.
-- [/] Recommencez	avec	le	jeu	SI-erreur	après	avoir	corrigé	les	valeurs	en	erreur.	Précisez	vos	méthodes.	
+- [ ] Recommencez	avec	le	jeu	SI-erreur	après	avoir	corrigé	les	valeurs	en	erreur.	Précisez	vos	méthodes.	
 - [ ] Les	données	corrigées	sont	elles	proches	des	valeurs	sans	erreur	?	
 - [ ] A	partir	de	données	opendata	du	second	ﬁchier,	retrouver	le	type	de	climat.
 - [ ] Reprendre	les	données	typiques	de	la	localisation	proche	fournies	en	complément	,	comparer	les	écarts.	
