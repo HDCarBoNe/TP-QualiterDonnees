@@ -14,7 +14,7 @@ Consignes :
 - [x] Utiliser	par	Python	Scipy	pour	les	parties	mathématiques.	
 - [x] Tracer	les	courbes	de	chaque	mois	avec	une	bibliothèque	graphique	python	Matplotlib,	12	vues	mensuelles.
 - [x] Assembler	les	courbes	sur	un	seul	graphique	(J1	->	J365)	:	vue	annuelle.
-- [ ] Présenter	la	valeur	lue	en	parcourant	la	courbe	à	l'aide	du	pointeur,	
+- [x] Présenter	la	valeur	lue	en	parcourant	la	courbe	à	l'aide	du	pointeur,	
 - [ ] Présenter	les	valeurs	précédentes	par	mois	glissant	de	30	jours	centré	sur	la	valeur	lue.
 - [ ] Recommencez	avec	le	jeu	SI-erreur	après	avoir	corrigé	les	valeurs	en	erreur.	Précisez	vos	méthodes.	
 - [ ] Les	données	corrigées	sont	elles	proches	des	valeurs	sans	erreur	?	
