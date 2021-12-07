@@ -92,44 +92,38 @@ def print_courbe_annuelle():
     return y_annuelle,x_annuelle
 
 def print_courbe_annuelle_pointeur():
-    # x and y arrays for definining an initial function
-    #x = np.linspace(0, 10, 100)
-    #y = np.exp(x ** 0.5) * np.sin(5 * x)
-    x = x_annuelle
-    y = y_annuelle
-    # Plotting
-    fig = plt.figure()
-    ax = fig.subplots()
-    ax.plot(x, y, color='b')
-    ax.grid()
-    # Defining the cursor
-    cursor = Cursor(ax, horizOn=True, vertOn=True, useblit=True,
-                    color='r', linewidth=1)
-    # Creating an annotating box
-    annot = ax.annotate("", xy=(0, 0), xytext=(-40, 40), textcoords="offset points",
-                        bbox=dict(boxstyle='round4', fc='linen', ec='k', lw=1),
-                        arrowprops=dict(arrowstyle='-|>'))
-    annot.set_visible(False)
-    # Function for storing and showing the clicked values
-    coord = []
+    class SnaptoCursor(object):
+        def __init__(self, ax, x, y):
+            self.ax = ax
+            self.ly = ax.axvline(color='k', alpha=0.2)  # the vert line
+            self.marker, = ax.plot([0], [0], marker="o", color="crimson", zorder=3)
+            self.x = x
+            self.y = y
+            self.txt = ax.text(0.7, 0.9, '')
 
-    def onclick(event):
-        global coord
-        coord.append((event.xdata, event.ydata))
-        x = event.xdata
-        y = event.ydata
+        def mouse_move(self, event):
+            if not event.inaxes: return
+            x, y = event.xdata, event.ydata
+            indx = np.searchsorted(self.x, [x])[0]
+            x = self.x[indx]
+            y = self.y[indx]
+            self.ly.set_xdata(x)
+            self.marker.set_data([x], [y])
+            self.txt.set_text('Jours=%1.1f, Temp=%1.1f' % (x, y))
+            self.txt.set_position((x, y))
+            self.ax.figure.canvas.draw_idle()
 
-        # printing the values of the selected point
-        print([x, y])
-        annot.xy = (x, y)
-        text = "({:.2g}, {:.2g})".format(x, y)
-        annot.set_text(text)
-        annot.set_visible(True)
-        fig.canvas.draw()  # redraw the figure
+    t = x_annuelle
+    s = y_annuelle
+    fig, ax = plt.subplots()
 
-    fig.canvas.mpl_connect('button_press_event', onclick)
+    # cursor = Cursor(ax)
+    cursor = SnaptoCursor(ax, t, s)
+    cid = plt.connect('motion_notify_event', cursor.mouse_move)
+
+    ax.plot(t, s, )
+    plt.axis([0, 365, -40, 40])
     plt.show()
-
 
 #Afficher les valeurs contenu dans le fichier excel
 print_climat()
@@ -141,3 +135,5 @@ print_moy_min_max()
 y_annuelle,x_annuelle = print_courbe_annuelle()
 #Présenter la valeur lue en parcourant la courbe à l'aide du pointeur,
 print_courbe_annuelle_pointeur()
+
+
