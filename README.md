@@ -5,7 +5,7 @@ executer le projet:
 python3 qualiter_donnees.py
 ```
 
-Consinges :
+Consignes :
 
 * Pour	l’	échantillon	SI,	calculez	:	
   - moyenne	par	mois	
