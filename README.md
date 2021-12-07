@@ -7,11 +7,10 @@ python3 qualiter_donnees.py
 
 Consinges :
 
-Déroulement:	
-Pour	l’	échantillon	SI,	calculez	:	
-  • moyenne	par	mois	
-  • écart	type	par	mois	
-  • min	/max	par	mois	et	par	année	
+* Pour	l’	échantillon	SI,	calculez	:	
+  - moyenne	par	mois	
+  - écart	type	par	mois	
+  - min	/max	par	mois	et	par	année	
   
 * Utiliser	par	Python	Scipy	pour	les	parties	mathématiques.	
 * Tracer	les	courbes	de	chaque	mois	avec	une	bibliothèque	graphique	python	Matplotlib,	12	vues	mensuelles.
